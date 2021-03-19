@@ -1,70 +1,126 @@
-<div class=" col-md-4 container center-div card-body">
+<div class=" col-md-6 container center-div card-body">
     <h2 style="text-align: center;">REGISTRATION FORM</h2>
-    <form  #registerform="ngForm" method="POST" action="#" (ngSubmit)="onSubmit()" class="needs-validation">
-        <div class="form-group" >
-            <label for="name">Name</label>
-            <input required minlength="3" maxlength="10" ngModel name="name" #name="ngModel" id="name" type="text"
-                class="form-control">
-            <div class="alert alert-danger" *ngIf="name.touched && !name.valid">
-            
-                <div *ngIf="name.errors.required">Name is required</div>
-                <div *ngIf="name.errors.minlength">Name should be minimum 3 characters</div>
+    <form #registerform="ngForm" method="POST" action="#" (ngSubmit)="onSubmit()" class="needs-validation">
+
+        <!-- Name Field -->
+        <div class="form-group row">
+            <div class="form-group col-md-6">
+                <label for="fname" class="form-label">First name </label>
+                <input required minlength="3" maxlength="10" ngModel name="fname" #fname="ngModel" id="fname"
+                    type="text" class="form-control">
+                <!-- valid feedback -->
+                <div id="fnamefeed" class="valid-feedback">
+                    Looks good!
+                </div>
+                <!-- Invalid feedback -->
+                <div class="alert alert-danger" *ngIf="fname.touched && !fname.valid">
+
+                    <div *ngIf="fname.errors.required">First Name is required</div>
+                    <div *ngIf="fname.errors.minlength">First Name should be minimum 3 characters</div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="lname" class="form-label">Last name</label>
+                <input required minlength="3" maxlength="10" ngModel name="lname" #lname="ngModel" id="lname"
+                    type="text" class="form-control">
+                <!-- valid feedback -->
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <!-- invalid feedback -->
+                <div class="alert alert-danger" *ngIf="lname.touched && !lname.valid">
+
+                    <div *ngIf="lname.errors.required">Last Name is required</div>
+                    <div *ngIf="lname.errors.minlength">Last Name should be minimum 3 characters</div>
+                </div>
+
             </div>
         </div>
 
+        <!-- Email field -->
         <div class="form-group">
             <label for="email">Email</label>
             <input required ngModel #email="ngModel" type="email" name="email" id="email" email class="form-control">
+            <!-- Invalid feedback -->
             <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
                 <div *ngIf="email.errors.required">Email is required</div>
                 <div *ngIf="email.errors.email">Email should have '@' character</div>
             </div>
-        </div>
-
-        <div class="form-group">
-            <label for="phn">Phone Number</label>
-            <input required minlength="10" maxlength="10" ngModel name="phn" #phn="ngModel" id="phn" type="number"
-            pattern="^((\\+91-?)|0)?[0-9]{10}$" class="form-control">
-            <div class="alert alert-danger" *ngIf="phn.touched && !phn.valid">
-                <div *ngIf="phn.errors.required">Phone no. is required</div>
-                <div *ngIf="phn.errors?.pattern">Phone no. should be 10 characters</div>
+            <!-- valid feedback -->
+            <div class="valid-feedback">
+                Thanks! We will never share your email.
             </div>
         </div>
 
-        <div class="form-group">
-            <label for="pwd">Password</label>
-            <input required  ngModel name="pwd" #pwd="ngModel" id="pwd" type="text"
-                class="form-control" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,}$">
-            <div class="alert alert-danger" *ngIf="pwd.touched && !pwd.valid">
-            
-                <div *ngIf="pwd.errors.required">Password is required</div>
-                <div *ngIf="pwd.errors.pattern">Minimum four characters, at least one uppercase letter, one
-                    lowercase letter, one number and one special character</div>
+
+        <!-- Phone Field -->
+        <div class="form-group row">
+            <div class="form-group col-md-6">
+                <!-- Primary -->
+                <label for="phn" class="form-label">Primary Number</label>
+                <input required minlength="10" maxlength="10" ngModel name="phn" #phn="ngModel" id="phn" type="number"
+                    pattern="^((\\+91-?)|0)?[0-9]{10}$" class="form-control">
+                <!-- valid feedback -->
+                <div class="valid-feedback">
+                    Be Assure! Your no is safe with us.
+                </div>
+                <!-- invalid feedback -->
+                <div class="alert alert-danger" *ngIf="phn.touched && !phn.valid">
+                    <div *ngIf="phn.errors.required">Phone no. is required</div>
+                    <div *ngIf="phn.errors?.pattern">Phone no. should be 10 characters</div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <!-- Alternate -->
+                <label for="phn2" class="form-label">Alternate Number</label>
+                <input minlength="10" maxlength="10" ngModel name="phn2" #phn2="ngModel" id="phn2" type="number"
+                    pattern="^((\\+91-?)|0)?[0-9]{10}$" class="form-control">
+                <!-- valid feedback -->
+                <div class="valid-feedback">
+                    Be Assure! Your no is safe with us.
+                </div>
+                <!-- invalid feedback -->
+                <div class="alert alert-danger" *ngIf="phn.touched && !phn.valid">
+                    <div *ngIf="phn.errors?.pattern">Phone no. should be 10 characters</div>
+                </div>
+
             </div>
         </div>
 
-        <div class="form-group">
-            <label for="cpwd">Confirm Password</label>
-            <input required  ngModel name="cpwd" #cpwd="ngModel" id="cpwd" type="text"
-                class="form-control" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,}$">
-            <div class="alert alert-danger" *ngIf="cpwd.touched && !cpwd.valid">
-                <div *ngIf="cpwd.errors.required">Password is required</div>
-                <div *ngIf="cpwd.errors.pattern">Minimum four characters, at least one uppercase letter, one
-                    lowercase letter, one number and one special character</div>
-                <div *ngIf="pwd.value!=cpwd.value"> Password & Confirm Password does not match.</div>
+
+
+
+        <!-- Password field -->
+        <div class="form-group row">
+            <div class="form-group col-md-6">
+                <label for="pwd">Password</label>
+                <input required ngModel name="pwd" #pwd="ngModel" id="pwd" type="text" class="form-control"
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,}$">
+                <div class="alert alert-danger" *ngIf="pwd.touched && !pwd.valid">
+
+                    <div *ngIf="pwd.errors.required">Password is required</div>
+                    <div *ngIf="pwd.errors.pattern">Minimum four characters, at least one uppercase letter, one
+                        lowercase letter, one number and one special character</div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="cpwd">Confirm Password</label>
+                <input required ngModel name="cpwd" #cpwd="ngModel" id="cpwd" type="text" class="form-control"
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,}$">
+                <div class="alert alert-danger" *ngIf="cpwd.touched && !cpwd.valid">
+                    <div *ngIf="cpwd.errors.required">Password is required</div>
+                    <div *ngIf="cpwd.errors.pattern">Minimum four characters, at least one uppercase letter, one
+                        lowercase letter, one number and one special character</div>
+                    <div *ngIf="pwd.value!=cpwd.value"> Password & Confirm Password does not match.</div>
+                </div>
             </div>
         </div>
 
-        <button type="submit" class="btn btn-primary" (click)="validate()" [disabled]="!registerform.valid" ngModel name="sub"
-        #sub="ngModel" >Submit</button>
-        <!-- <div *ngIf="sub.valid">
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Success!</strong> Your form submitted successfully.
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-        </div> -->
+        <button type="submit" class="btn btn-primary" (click)="validate()" [disabled]="!registerform.valid" ngModel
+            name="sub" #sub="ngModel">Submit</button>
+        
         <!-- [disabled]="!registerform.valid" -->
 
     </form>
