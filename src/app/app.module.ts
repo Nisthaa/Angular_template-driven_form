@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import "bootstrap";
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -10,7 +12,8 @@ import { RegisterFormComponent } from './register-form/register-form.component';
     RegisterFormComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

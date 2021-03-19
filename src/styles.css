@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    margin: 5px;
+    padding: 20px;
+}
+.form-control.ng-touched.ng-invalid{
+    border: 2px solid red;
+}
+.card-body{
+    padding: 25px;
+    border: 1px solid silver;
+}
+h2{
+    text-decoration:underline;
+    color: rgb(69, 179, 243);
+    font: 30px Times, serif;
+}
