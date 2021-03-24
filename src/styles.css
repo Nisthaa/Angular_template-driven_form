@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-    margin: 5px;
+    margin: 10px;
     padding: 20px;
 }
 .form-control.ng-touched.ng-invalid{
@@ -8,10 +8,35 @@ body{
 }
 .card-body{
     padding: 25px;
-    border: 1px solid silver;
 }
-h2{
-    text-decoration:underline;
-    color: rgb(69, 179, 243);
-    font: 30px Times, serif;
+header{
+    padding: 5px;
+    text-align: center;
+    height: 80px;
+    background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+    color: #fff;
+    font-weight: bold;
+    line-height: 80px;
+}
+.form-switch{
+    margin: 10px;
+}
+.radio-inline{
+    margin-left: 18px;
+}
+label{
+    color:slateblue;
+}
+.form-label:after{
+    content:"*";
+   color:red;
+}
+button
+{
+    position:initial;
+    border:none;
+    border-radius:1.5rem;
+    padding: 1%;
+    width: 20%;
+    cursor: pointer;
 }

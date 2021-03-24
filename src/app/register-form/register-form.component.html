@@ -1,7 +1,9 @@
-<div class=" col-md-6 container center-div card-body">
-    <h2 style="text-align: center;">REGISTRATION FORM</h2>
-    <form #registerform="ngForm" method="POST" action="#" (ngSubmit)="onSubmit()" class="needs-validation">
-
+<div class="col-md-6 container center-div card">
+    <header class="card-header">
+        <h4 class="card-title mt-2">Registration Form</h4>
+    </header>
+    <form #registerform="ngForm" method="POST" action="#"  (ngSubmit)="onSubmit()" class="card-body needs-validation">
+        
         <!-- Name Field -->
         <div class="form-group row">
             <div class="form-group col-md-6">
@@ -39,7 +41,7 @@
 
         <!-- Email field -->
         <div class="form-group">
-            <label for="email">Email</label>
+            <label class="form-label" for="email">Email</label>
             <input required ngModel #email="ngModel" type="email" name="email" id="email" email class="form-control">
             <!-- Invalid feedback -->
             <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
@@ -73,7 +75,7 @@
 
             <div class="form-group col-md-6">
                 <!-- Alternate -->
-                <label for="phn2" class="form-label">Alternate Number</label>
+                <label for="phn2" class="form-group">Alternate Number</label>
                 <input minlength="10" maxlength="10" ngModel name="phn2" #phn2="ngModel" id="phn2" type="number"
                     pattern="^((\\+91-?)|0)?[0-9]{10}$" class="form-control">
                 <!-- valid feedback -->
@@ -92,7 +94,7 @@
         <!-- Password field -->
         <div class="form-group row">
             <div class="form-group col-md-6">
-                <label for="pwd">Password</label>
+                <label class="form-label" for="pwd">Password</label>
                 <input required ngModel name="pwd" #pwd="ngModel" id="pwd" type="text" class="form-control"
                     pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,}$">
                 <div class="alert alert-danger" *ngIf="pwd.touched && !pwd.valid">
@@ -104,7 +106,7 @@
             </div>
 
             <div class="form-group col-md-6">
-                <label for="cpwd">Confirm Password</label>
+                <label class="form-label" for="cpwd">Confirm Password</label>
                 <input required ngModel name="cpwd" #cpwd="ngModel" id="cpwd" type="text" class="form-control"
                     pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,}$">
                 <div class="alert alert-danger" *ngIf="cpwd.touched && !cpwd.valid">
@@ -131,18 +133,19 @@
 
         <!-- gender field -->
         <div class="form-group row">
+            <label class="form-label" for="gender" id="gender"  >Gender</label>
             <div class="radio-inline">
-                <label class="form-label" for="gender" id="gender"  >Gender</label><br>
+                
                 <input class="form-check-input" type="radio" name="gender" id="msex" ngModel #gender="ngModel" value="male" required >
                 <label class="form-check-label" for="">Male</label>
                 
             </div>
             <div class="radio-inline">
-                <input class="form-check-input" type="radio" name="gender" id="fsex" value="female">
+                <input class="form-check-input" type="radio" name="gender" ngModel #gender="ngModel" id="fsex" value="female">
                 <label class="form-check-label" for="">Female</label>
             </div>
             <div class="radio-inline">
-                <input class="form-check-input" type="radio" name="gender"  id="osex" value="other">
+                <input class="form-check-input" type="radio" name="gender" ngModel #gender="ngModel"  id="osex" value="other">
                 <label class="form-check-label" for="">Other</label>
             </div>
             <div class="alert alert-danger" *ngIf="gender.touched && !gender.valid">
@@ -187,7 +190,7 @@
         <!-- country -->
         <div class="form-group row">
             <div class="form-group col-md-6">
-                <label class="form-label" for="">Country</label>
+                <label class="form-label" for="country">Country</label>
                 <select class="form-select" name="country" id="con" required ngModel #country="ngModel">
                     <!-- <option selected value="0">Please select a country</option> -->
                     <option value="IND">India</option>
@@ -273,11 +276,30 @@
 
 
 
+        <!-- Google recaptcha -->
+        <div class="form-group">
+        <div class="form-check">
+            <ngx-recaptcha2 #captchaElem
+              [siteKey]="siteKey">
+            </ngx-recaptcha2>
+        </div>
+        </div>
 
-        <button type="submit" class="btn btn-primary" (click)="validate()" [disabled]="!registerform.valid" ngModel
-            name="sub" #sub="ngModel">Submit</button>
+
+
+
+
+
+        <!-- Submit button -->
         
-        <!-- [disabled]="!registerform.valid" -->
+            <div class="form-group row">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <button type="submit" class="btn btn-outline-danger" (click)="validate()" [disabled]="!registerform.valid" ngModel
+            name="sub" #sub="ngModel">Submit</button>
+                    <button type="reset" class="btn btn-outline-primary reset">Reset</button>
+                </div>
+            </div>
+        
 
     </form>
 </div>
